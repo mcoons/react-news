@@ -19,29 +19,11 @@
             "country": "us"
         },
         {
-            "id": "cnbc",
-            "name": "CNBC",
-            "description": "Get latest business news on stock markets, financial & earnings on CNBC. View world markets streaming charts & video; check stock tickers and quotes.",
-            "url": "http://www.cnbc.com",
-            "category": "business",
-            "language": "en",
-            "country": "us"
-        },
-        {
-            "id": "cnn",
-            "name": "CNN",
-            "description": "View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN",
-            "url": "http://us.cnn.com",
+            "id": "nbc-news",
+            "name": "NBC News",
+            "description": "Breaking news, videos, and the latest top stories in world news, business, politics, health and pop culture.",
+            "url": "http://www.nbcnews.com",
             "category": "general",
-            "language": "en",
-            "country": "us"
-        },
-        {
-            "id": "fortune",
-            "name": "Fortune",
-            "description": "Fortune 500 Daily and Breaking Business News",
-            "url": "http://fortune.com",
-            "category": "business",
             "language": "en",
             "country": "us"
         },
@@ -50,6 +32,15 @@
             "name": "Fox News",
             "description": "Breaking News, Latest News and Current News from FOXNews.com. Breaking news and video. Latest Current News: U.S., World, Entertainment, Health, Business, Technology, Politics, Sports.",
             "url": "http://www.foxnews.com",
+            "category": "general",
+            "language": "en",
+            "country": "us"
+        },
+        {
+            "id": "cnn",
+            "name": "CNN",
+            "description": "View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN",
+            "url": "http://us.cnn.com",
             "category": "general",
             "language": "en",
             "country": "us"
@@ -73,29 +64,11 @@
             "country": "us"
         },
         {
-            "id": "msnbc",
-            "name": "MSNBC",
-            "description": "Breaking news and in-depth analysis of the headlines, as well as commentary and informed perspectives from The Rachel Maddow Show, Morning Joe & more.",
-            "url": "http://www.msnbc.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
-        },
-        {
             "id": "national-geographic",
             "name": "National Geographic",
             "description": "Reporting our world daily: original nature and science news from National Geographic.",
             "url": "http://news.nationalgeographic.com",
             "category": "science",
-            "language": "en",
-            "country": "us"
-        },
-        {
-            "id": "nbc-news",
-            "name": "NBC News",
-            "description": "Breaking news, videos, and the latest top stories in world news, business, politics, health and pop culture.",
-            "url": "http://www.nbcnews.com",
-            "category": "general",
             "language": "en",
             "country": "us"
         },

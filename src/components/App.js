@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import News from './News/News';
-import Sidenews from './News/Sidenews';
+// import Sidenews from './News/Sidenews';
 import Sources from './News/Sources';
 
 class App extends Component {
@@ -10,7 +10,7 @@ class App extends Component {
     this.state = {
       news1: {
         type: 'top-headlines',
-        query: 'sources=bbc-news, wired, usa-today, the-washington-post'
+        query: 'sources=bbc-news,the-washington-post,wired,usa-today'  // - wired, usa-today
       },
       news2: {
         type: 'everything',
@@ -27,20 +27,16 @@ class App extends Component {
   }
 
   updateSources(object){
-    // console.log(object);
 
     let newState = this.state.selectedSources.slice();
 
-    object.value ? console.log("add to state") : console.log("remove from state");
-    object.value ? newState.push(object.sourceID) : newState = newState.filter( e => e != object.sourceID );
+    object.value ? newState.push(object.sourceID) : newState = newState.filter( e => e !== object.sourceID );
 
-    // console.log(newState);
     this.setState({selectedSources: newState,
                    news1: { type: 'top-headlines',
                             query: 'sources='+newState.toString()
                           }
     })
-
   }
 
   render() {

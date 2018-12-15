@@ -13,18 +13,11 @@ class Sources extends Component {
   }
 
   componentDidMount(){
-    const url = `https://newsapi.org/v2/sources?language=en&country=us&apiKey=207ab92db4944ed2a5c870bba5a8e313`;
 
     var myRequest = new Request('./sourcesdata.json');
 
     fetch(myRequest)
-        .then(response => response.json())
-    //     .then(json => console.log(json));
-
-    // fetch(url)
-    // .then ((response) => {
-    //     return response.json();
-    // })
+    .then(response => response.json())
     .then ((data) => {
         this.setState({
         sources: data.sources,
