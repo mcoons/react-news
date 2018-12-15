@@ -4,7 +4,12 @@ const NewSingle = ({item}) => (
     <div className = "col xs12 s12 m6 l3">
         <div className = "card small">
             <div className = "card-image">
+            {item.urlToImage ? (
                 <img src={item.urlToImage} alt={item.title}></img>
+            ) : (
+                <img src='./no-image-available.png' alt={item.title}></img>
+            )
+            }
                 <span className="card-title">{item.source.name}</span>
 
             </div>
