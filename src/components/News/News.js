@@ -1,36 +1,54 @@
 import React, {Component} from 'react';
 import NewSingle from './NewSingle';
+import Error from './Error';
 
 class News extends Component {
   constructor(props){
     super(props);
     this.state = {
       news: [],
+      error: false
     };
+
+    this.fetchNews = this.fetchNews.bind(this);    
   }
 
-  componentDidMount(){
-    // const url = 'https://newsapi.org/v2/top-headlines?language=en&category=technology&sortBy=publishedAt&apiKey=207ab92db4944ed2a5c870bba5a8e313';
+  fetchNews(){
     const url = `https://newsapi.org/v2/${this.props.news.type}?${this.props.news.query}&apiKey=207ab92db4944ed2a5c870bba5a8e313`;
   
     fetch(url)
-      .then ((response) => {
-        return response.json();
+    .then ((response) => {
+      return response.json();
+    })
+    .then ((data) => {
+      this.setState({
+        news: data.articles,
       })
-      .then ((data) => {
-        this.setState({
-          news: data.articles,
-        })
+    })
+    .catch((error) => {
+      console.log(error);
+      this.setState({
+          error: true
       })
-      .catch((error) => console.log(error));
+    });
+  }
+
+  componentDidMount(){
+    this.fetchNews();
   }
 
   renderItems(){
-    return this.state.news.map((item)=> (
-      <NewSingle key={item.url} item={item} />
-    ));
+    
+    if(!this.state.error) {
+      console.log("rendering news");
+      return this.state.news.map((item)=> (
+        <NewSingle key={item.url} item={item} />
+      ));
+    } else {
+      return <Error />
+    }
   }
-      
+
   render(){
     return (
       <div className="row flex">

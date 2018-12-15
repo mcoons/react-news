@@ -13,24 +13,8 @@
   color: white;
 }
 
-.flex {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start !important;
-}
-
 .card-content {
   height: 150px!important;
  }
 
- .col {
-  justify-content: flex-start !important;
 
-}
-  
-.row {
-  display: flex;
-  justify-content: flex-start !important;
-
-}
-  
