@@ -1,39 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
 import News from './News/News';
-// import Sidenews from './News/Sidenews';
 import Sources from './News/Sources';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      news1: {
+      news: {
         type: 'top-headlines',
-        query: 'sources=bbc-news,the-washington-post,wired,usa-today'  // - wired, usa-today
+        query: 'sources=abc-news,time'  // - wired, usa-today
       },
-      news2: {
-        type: 'everything',
-        query: 'domains=techcrunch.com&language=en'
-      },
-      news3: {
-        type: 'everything',
-        query: 'domains=comicbookmovie.com,techcrunch.com&language=en'
-      },
-      selectedSources: []
+      selectedSources: ['abc-news','time']
     };
 
     this.updateSources = this.updateSources.bind(this);
   }
 
   updateSources(object){
-
     let newState = this.state.selectedSources.slice();
-
     object.value ? newState.push(object.sourceID) : newState = newState.filter( e => e !== object.sourceID );
-
     this.setState({selectedSources: newState,
-                   news1: { type: 'top-headlines',
+                   news: { type: 'top-headlines',
                             query: 'sources='+newState.toString()
                           }
     })
@@ -50,13 +38,11 @@ class App extends Component {
           </nav>
         </div>
         <div className="row">
-          <div className="col xs12 s8">
-            <News key={this.state.news1.query} news={this.state.news1}/>
-            {/* <News news={this.state.news2}/> */}
+          <div className="col xs12 s9">
+            <News key={this.state.news.query} news={this.state.news}/>
           </div>
-          <div className="col xs12 s4">
-            <Sources updateSourcesCallback={this.updateSources}/>
-            {/* <Sidenews news={this.state.news3}/> */}
+          <div className="col xs12 s3">
+            <Sources selectedSources={this.state.selectedSources} updateSourcesCallback={this.updateSources}/>
           </div>
         </div>
       </div>

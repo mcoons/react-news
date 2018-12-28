@@ -4,154 +4,103 @@
             "id": "abc-news",
             "name": "ABC News",
             "description": "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com.",
-            "url": "https://abcnews.go.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "https://abcnews.go.com"
         },
         {
             "id": "cbs-news",
             "name": "CBS News",
             "description": "CBS News: dedicated to providing the best in journalism under standards it pioneered at the dawn of radio and television and continue in the digital age.",
-            "url": "http://www.cbsnews.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.cbsnews.com"
         },
         {
             "id": "nbc-news",
             "name": "NBC News",
             "description": "Breaking news, videos, and the latest top stories in world news, business, politics, health and pop culture.",
-            "url": "http://www.nbcnews.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.nbcnews.com"
         },
         {
             "id": "fox-news",
             "name": "Fox News",
             "description": "Breaking News, Latest News and Current News from FOXNews.com. Breaking news and video. Latest Current News: U.S., World, Entertainment, Health, Business, Technology, Politics, Sports.",
-            "url": "http://www.foxnews.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.foxnews.com"
         },
         {
             "id": "cnn",
             "name": "CNN",
             "description": "View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN",
-            "url": "http://us.cnn.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://us.cnn.com"
         },
         {
             "id": "google-news",
             "name": "Google News",
             "description": "Comprehensive, up-to-date news coverage, aggregated from sources all over the world by Google News.",
-            "url": "https://news.google.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "https://news.google.com"
         },
         {
             "id": "hacker-news",
             "name": "Hacker News",
             "description": "Hacker News is a social news website focusing on computer science and entrepreneurship. It is run by Paul Graham's investment fund and startup incubator, Y Combinator. In general, content that can be submitted is defined as \"anything that gratifies one's intellectual curiosity\".",
-            "url": "https://news.ycombinator.com",
-            "category": "technology",
-            "language": "en",
-            "country": "us"
+            "url": "https://news.ycombinator.com"
         },
         {
             "id": "national-geographic",
             "name": "National Geographic",
             "description": "Reporting our world daily: original nature and science news from National Geographic.",
-            "url": "http://news.nationalgeographic.com",
-            "category": "science",
-            "language": "en",
-            "country": "us"
+            "url": "http://news.nationalgeographic.com"
         },
         {
             "id": "new-scientist",
             "name": "New Scientist",
             "description": "Breaking science and technology news from around the world. Exclusive stories and expert analysis on space, technology, health, physics, life and Earth.",
-            "url": "https://www.newscientist.com/section/news",
-            "category": "science",
-            "language": "en",
-            "country": "us"
+            "url": "https://www.newscientist.com/section/news"
         },
         {
             "id": "newsweek",
             "name": "Newsweek",
             "description": "Newsweek provides in-depth analysis, news and opinion about international issues, technology, business, culture and politics.",
-            "url": "http://www.newsweek.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.newsweek.com"
         },
         {
             "id": "techcrunch",
             "name": "TechCrunch",
             "description": "TechCrunch is a leading technology media property, dedicated to obsessively profiling startups, reviewing new Internet products, and breaking tech news.",
-            "url": "https://techcrunch.com",
-            "category": "technology",
-            "language": "en",
-            "country": "us"
+            "url": "https://techcrunch.com"
         },
         {
             "id": "techradar",
             "name": "TechRadar",
             "description": "The latest technology news and reviews, covering computing, home entertainment systems, gadgets and more.",
-            "url": "http://www.techradar.com",
-            "category": "technology",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.techradar.com"
         },
         {
             "id": "the-new-york-times",
             "name": "The New York Times",
             "description": "The New York Times: Find breaking news, multimedia, reviews & opinion on Washington, business, sports, movies, travel, books, jobs, education, real estate, cars & more at nytimes.com.",
-            "url": "http://www.nytimes.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.nytimes.com"
         },
         {
             "id": "the-wall-street-journal",
             "name": "The Wall Street Journal",
             "description": "WSJ online coverage of breaking news and current headlines from the US and around the world. Top stories, photos, videos, detailed analysis and in-depth reporting.",
-            "url": "http://www.wsj.com",
-            "category": "business",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.wsj.com"
         },
         {
             "id": "time",
             "name": "Time",
             "description": "Breaking news and analysis from TIME.com. Politics, world news, photos, video, tech reviews, health, science and entertainment news.",
-            "url": "http://time.com",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://time.com"
         },
         {
             "id": "usa-today",
             "name": "USA Today",
             "description": "Get the latest national, international, and political news at USATODAY.com.",
-            "url": "http://www.usatoday.com/news",
-            "category": "general",
-            "language": "en",
-            "country": "us"
+            "url": "http://www.usatoday.com/news"
         },
         {
             "id": "wired",
             "name": "Wired",
             "description": "Wired is a monthly American magazine, published in print and online editions, that focuses on how emerging technologies affect culture, the economy, and politics.",
-            "url": "https://www.wired.com",
-            "category": "technology",
-            "language": "en",
-            "country": "us"
+            "url": "https://www.wired.com"
         }
     ]
 }

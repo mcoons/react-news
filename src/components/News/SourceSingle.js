@@ -4,7 +4,7 @@ class SourceSingle extends Component {
     constructor(props){
         super(props);
         this.state = {
-            [this.props.item.name]: false
+            [this.props.item.name]: props.selectedSources.includes(this.props.item.id) 
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -19,33 +19,24 @@ class SourceSingle extends Component {
         });
 
         let sourceID = name.toLowerCase().split(" ").join("-");
-        console.log(sourceID);
-
         this.props.updateSourcesCallback({sourceID, value});
     }
 
-
-
     render(){
         return (
-        <div>
-            <div className="divider"></div>
-            <label>
-                <input 
-                    name={this.props.item.name}
-                    type="checkbox"
-                    checked={this.state[this.props.item.name]}
-                    onChange={this.handleInputChange} />
-                <span>
-                    <div className="section">
-                        <a href={this.props.item.url} target="_blank">
-                            <h5>{this.props.item.name}</h5>
-                        </a>
-                        <p>{this.props.item.description}</p>
-                    </div>
-                </span>
-            </label>
+        <div className="source"> 
+            <label htmlFor={this.props.item.name}>
+            <input 
+                key = {this.props.item.name}
+                id = {this.props.item.name}
+                className="checkbox"
+                name={this.props.item.name}
+                type="checkbox"
+                checked={this.state[this.props.item.name]}
+                onChange={this.handleInputChange} />                
+                {this.props.item.name}</label>
         </div>
+
         )
     }
 }

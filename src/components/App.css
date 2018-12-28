@@ -13,10 +13,22 @@
   color: white;
 }
 
-.card-content {
+/* .card-content {
   height: 150px!important;
- }
+ } */
 
 .card-title {
   text-shadow: 2px 2px #333333 !important;
+}
+
+.checkbox {
+  position: relative !important;
+  opacity: 1 !important;
+  margin-right: 5px !important;
+  pointer-events: all !important;
+}
+
+.sources {
+  position: fixed;
+  float: right;
 }

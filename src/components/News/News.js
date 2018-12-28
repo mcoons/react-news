@@ -10,35 +10,22 @@ class News extends Component {
       error: false,
       API_KEY: process.env.REACT_APP_NEWS_API_KEY
     };
-
     this.fetchNews = this.fetchNews.bind(this);    
   }
 
   componentDidMount(){
-
     this.fetchNews();
   }
 
   fetchNews(){
-
-// convert to local browser storage cache
-
-    console.log("Date now");
-    console.log(Date.now())
-
     let newStateNews = [], finalSources = []
-    // sources.foreach(is it in state.cache and recent ? add state.cache.source.news to newStateNews : add source to finalSources)
-    // setState.news to newStateNews
-    // if (finalSources.length > 0) newQuery = "sources="+finalSources.toString() AND perform fetch below with new query string
     let sources = this.props.news.query.replace('sources=','').split(',');
     sources.forEach( s => { 
       let timestamp=localStorage.getItem(s+"-timestamp");
       if (timestamp){
         if (Date.now() - Number(timestamp) > 3600000){
-          console.log(s,timestamp,`${(Date.now() - Number(timestamp))/60000} minutes`)
           finalSources.push(s);
         } else {
-          console.log(s,timestamp,`${(Date.now() - Number(timestamp))/60000} minutes`)
           newStateNews = newStateNews.concat(JSON.parse( localStorage.getItem(s)));
         }
       } else {
@@ -46,40 +33,23 @@ class News extends Component {
       }
     })
     
-    console.log("new state news")
-    console.log(newStateNews);
-    console.log("final sources")
-    console.log("sources="+finalSources.join(','));
-    
     this.setState({
       news: newStateNews
     })
     
     if (finalSources.length > 0){
-      
-      
       let newQuery = "sources="+finalSources.join(',')
-    
-
-
       const url = `https://newsapi.org/v2/${this.props.news.type}?${newQuery}&pagesize=100&apiKey=${this.state.API_KEY}`;
     
       fetch(url)
       .then ((response) => {
-        console.log("Fetched data from API")
         return response.json();
       })
       .then ((data) => {
-        // split data.articles by source and add each sourced array to state.cache with timestamp keyed bt source id
         let tempData = data.articles.slice();
-        console.log("queried API articles array");
-        console.log(tempData);
-        console.log("Final Sources array")
-        console.log(finalSources);
         finalSources.forEach( s => {localStorage.setItem(s+"-timestamp", Date.now()); localStorage.setItem(s, JSON.stringify( tempData.filter(d => d.source.id === s)))});
-        
         this.setState({
-          news: this.state.news.concat(data.articles)  // change to append to current state.news
+          news: this.state.news.concat(data.articles)  
         })
       })
       .catch((error) => {
@@ -92,9 +62,7 @@ class News extends Component {
   }
 
   renderItems(){
-    
     if(!this.state.error) {
-      console.log("rendering news");
       if (this.state.news && this.state.news.length){
       return this.state.news.map((item)=> (
         <NewSingle key={item.source.id+item.url} item={item} />
