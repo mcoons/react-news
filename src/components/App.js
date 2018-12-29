@@ -13,8 +13,18 @@ class App extends Component {
       },
       selectedSources: ['abc-news','time']
     };
-
     this.updateSources = this.updateSources.bind(this);
+  }
+
+  componentDidMount(){
+    let preSelectesSources = localStorage.getItem('selectedSources');
+    if (preSelectesSources){
+      this.setState({selectedSources: JSON.parse(preSelectesSources),
+                     news: { type: 'top-headlines',
+                             query: 'sources='+JSON.parse(preSelectesSources).toString()
+                           }
+      });
+    }
   }
 
   updateSources(object){
@@ -22,9 +32,10 @@ class App extends Component {
     object.value ? newState.push(object.sourceID) : newState = newState.filter( e => e !== object.sourceID );
     this.setState({selectedSources: newState,
                    news: { type: 'top-headlines',
-                            query: 'sources='+newState.toString()
-                          }
-    })
+                           query: 'sources='+newState.toString()
+                         }
+    });
+    localStorage.setItem('selectedSources', JSON.stringify(newState));
   }
 
   render() {
@@ -33,7 +44,7 @@ class App extends Component {
         <div className="navbar-fixed">
           <nav>
             <div className="nav-wrapper indigo lighten-4">
-                <a href="/" className="bran-logo center">My Feed</a>
+                <a href="/" className="brand-logo center">My Feeds</a>
             </div>
           </nav>
         </div>

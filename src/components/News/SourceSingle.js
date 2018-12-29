@@ -36,7 +36,6 @@ class SourceSingle extends Component {
                 onChange={this.handleInputChange} />                
                 {this.props.item.name}</label>
         </div>
-
         )
     }
 }
