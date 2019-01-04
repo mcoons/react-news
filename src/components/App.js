@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       news: {
         type: 'top-headlines',
-        query: 'sources=abc-news,time'  // - wired, usa-today
+        query: 'sources=abc-news,time'  
       },
       selectedSources: ['abc-news','time']
     };
@@ -44,7 +44,7 @@ class App extends Component {
         <div className="navbar-fixed">
           <nav>
             <div className="nav-wrapper indigo lighten-4">
-                <a href="/" className="brand-logo center">My Feeds</a>
+                <a href="/" className="brand-logo center">News Feeds</a>
             </div>
           </nav>
         </div>

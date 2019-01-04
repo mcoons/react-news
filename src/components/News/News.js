@@ -86,6 +86,9 @@ class News extends Component {
 
 export default News;
 
+
+// DATA SET EXAMPLE
+
 // [{ "source": { "id": "the-washington-post", "name": "The Washington Post" }, 
 //    "author": null, 
 //    "title": "Trump administration not to blame for ‘tragic’ death of 7-year-old girl in Border Patrol custody, White House says", 

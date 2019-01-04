@@ -5,7 +5,8 @@ const NewSingle = ({item}) => (
         <div className = "card medium">
             <div className = "card-image">
             {item.urlToImage ? (
-                <img src={item.urlToImage} alt={item.title}></img>
+            //  {/* {item.urlToImage && item.urlToImage.match(/\.(jpeg|jpg|gif|png)$/)  ? ( */}
+            <img src={item.urlToImage} alt={item.title}></img>
             ) : (
                 <img src='./no-image-available.png' alt={item.title}></img>
             )
@@ -24,3 +25,7 @@ const NewSingle = ({item}) => (
 );
 
 export default NewSingle;
+
+
+// (http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)
+// url.match(/\.(jpeg|jpg|gif|png)$/) != null)
