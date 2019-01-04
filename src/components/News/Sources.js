@@ -43,7 +43,9 @@ class Sources extends Component {
   render(){
     return (
         <div className="row flex sources">
-            {this.renderItems()}
+          <p>Select Sources</p>
+          {this.renderItems()}
+          <p>Powered by NewsAPI.org</p>
         </div>
     );
   }
