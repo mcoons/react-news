@@ -24,6 +24,7 @@ const NewSingle = ({item}) => (
     </div>
 );
 
+
 export default NewSingle;
 
 
