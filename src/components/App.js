@@ -7,35 +7,44 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      news: {
-        type: 'top-headlines',
-        query: 'sources=abc-news,time'  
-      },
-      selectedSources: ['abc-news','time']
+      selectedSource: 'viewed24hrs',
+      filter:'viewed',
+      period: 1
     };
     this.updateSources = this.updateSources.bind(this);
   }
 
   componentDidMount(){
-    let preSelectesSources = localStorage.getItem('selectedSources');
-    if (preSelectesSources){
-      this.setState({selectedSources: JSON.parse(preSelectesSources),
-                     news: { type: 'top-headlines',
-                             query: 'sources='+JSON.parse(preSelectesSources).toString()
-                           }
-      });
+    let userSelectedSource = localStorage.getItem('selectedSource');
+    if (userSelectedSource){
+      this.setState({selectedSource: JSON.parse(userSelectedSource)});
     }
+
+    let userFilter = localStorage.getItem('filter');
+    if (userFilter){
+      this.setState({filter: JSON.parse(userFilter)});
+    }
+
+    let userperiod = localStorage.getItem('period');
+    if (userperiod){
+      this.setState({period: JSON.parse(userperiod)});
+    }
+
+    console.log('App this.state');
+    console.log(this.state);
+
   }
 
   updateSources(object){
-    let newState = this.state.selectedSources.slice();
-    object.value ? newState.push(object.sourceID) : newState = newState.filter( e => e !== object.sourceID );
-    this.setState({selectedSources: newState,
-                   news: { type: 'top-headlines',
-                           query: 'sources='+newState.toString()
-                         }
-    });
-    localStorage.setItem('selectedSources', JSON.stringify(newState));
+    let oldState = this.state.selectedSource;
+    // object.value ? newState.push(object.sourceID) : newState = newState.filter( e => e !== object.sourceID );
+    if (oldState !== object.id )
+    {
+      this.setState({selectedSource: object.id });
+    }
+    // object.value ? newState.push(object.sourceID) : newState = newState.filter( e => e !== object.sourceID );
+    // this.setState({selectedSource: newState});
+    // localStorage.setItem('selectedSource', JSON.stringify(newState));
   }
 
   render() {
@@ -44,16 +53,17 @@ class App extends Component {
         <div className="navbar-fixed">
           <nav>
             <div className="nav-wrapper indigo lighten-4">
-                <a href="/" className="brand-logo center">News Feeds</a>
+                <a href="/" className="brand-logo center">New York Times</a>
             </div>
           </nav>
         </div>
         <div className="row">
           <div className="col xs12 s9">
-            <News key={this.state.news.query} news={this.state.news}/>
+            <News key={this.state.news} news={this.state.news}/>
           </div>
           <div className="col xs12 s3">
-            <Sources selectedSources={this.state.selectedSources} updateSourcesCallback={this.updateSources}/>
+          {/* <Sources selectedSources={this.state.selectedSources} updateSourcesCallback={this.updateSources}/> */}
+          <Sources selectedSource={this.state.selectedSource} updateSourcesCallback={this.updateSources}/> 
           </div>
         </div>
       </div>

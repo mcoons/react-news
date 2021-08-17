@@ -18,59 +18,69 @@ class News extends Component {
   }
 
   fetchNews(){
-    let newStateNews = [], finalSources = []
-    let sources = this.props.news.query.replace('sources=','').split(',');
-    sources.forEach( s => { 
-      let timestamp=localStorage.getItem(s+"-timestamp");
-      if (timestamp){
-        if (Date.now() - Number(timestamp) > 3600000){
-          finalSources.push(s);
-        } else {
-          newStateNews = newStateNews.concat(JSON.parse( localStorage.getItem(s)));
-        }
-      } else {
-        finalSources.push(s);
-      }
-    })
+  //   let newStateNews = [], finalSources = []
+  //   // let sources = this.props.news.query.replace('sources=','').split(',');
+  //   sources.forEach( s => { 
+  //     let timestamp=localStorage.getItem(s+"-timestamp");
+  //     if (timestamp){
+  //       if (Date.now() - Number(timestamp) > 3600000){
+  //         finalSources.push(s);
+  //       } else {
+  //         newStateNews = newStateNews.concat(JSON.parse( localStorage.getItem(s)));
+  //       }
+  //     } else {
+  //       finalSources.push(s);
+  //     }
+  //   })
     
-    this.setState({
-      news: newStateNews
-    })
+  //   this.setState({
+  //     news: newStateNews
+  //   })
     
-    if (finalSources.length > 0){
-      let newQuery = "sources="+finalSources.join(',')
-      const url = `https://newsapi.org/v2/${this.props.news.type}?${newQuery}&pagesize=100&apiKey=${this.state.API_KEY}`;
-    
+    // if (finalSources.length > 0){
+      // let newQuery = "sources="+finalSources.join(',');
+      // const url = `https://newsapi.org/v2/${this.props.news.type}?${newQuery}&pagesize=100&apiKey=${this.state.API_KEY}`;
+      const url = ` https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=${this.state.API_KEY}`;
+     
       fetch(url)
       .then ((response) => {
+        // console.log(response.json());
         return response.json();
       })
       .then ((data) => {
-        let tempData = data.articles.slice();
-        finalSources.forEach( s => {localStorage.setItem(s+"-timestamp", Date.now()); localStorage.setItem(s, JSON.stringify( tempData.filter(d => d.source.id === s)))});
+        let tempData = data.results.slice();
+        console.log(tempData);
+      //   finalSources.forEach( s => {localStorage.setItem(s+"-timestamp", Date.now()); localStorage.setItem(s, JSON.stringify( tempData.filter(d => d.source.id === s)))});
         this.setState({
-          news: this.state.news.concat(data.articles)  
-        })
+          news: this.state.news.concat(data.results)  
+        });
+        console.log(".then reached")
       })
-      .catch((error) => {
-        console.log(error);
-        this.setState({
-            error: true
-        })
-      });
+      // .catch((error) => {
+      //   console.log(error);
+      //   this.setState({
+      //       error: true
+      //   })
+      // });
     }
-  }
+  // }
 
   renderItems(){
+    // console.log('this.state.news');
+    // console.log(this.state.news);
     if(!this.state.error) {
       if (this.state.news && this.state.news.length){
-      return this.state.news.map((item)=> (
-        <NewSingle key={item.source.id+item.url} item={item} />
+        // console.log(this.state.news[0])
+        // console.log(this.state.news[0]['media'][0]['media-metadata'][2].url)
+      return this.state.news.map((item, index)=> (
+        <NewSingle key={item.source+index} item={item} />
       ));
       }else{
+        console.log("catch1");
         return <Error />
       }
     } else {
+      console.log("catch2");
       return <Error />
     }
   }
@@ -85,6 +95,12 @@ class News extends Component {
 }
 
 export default News;
+
+
+
+// https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=yourkey
+
+
 
 
 // DATA SET EXAMPLE

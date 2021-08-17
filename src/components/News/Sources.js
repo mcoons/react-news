@@ -20,7 +20,9 @@ class Sources extends Component {
     .then ((data) => {
         this.setState({
         sources: data.sources,
-      })
+      });
+      console.log("Sources this.state");
+      console.log(this.state);
     })
     .catch((error) => {
       console.log(error);
@@ -28,12 +30,15 @@ class Sources extends Component {
           error: true
       })
     });
+
+
   }
 
   renderItems(){
     if(!this.state.error) {
       return this.state.sources.map((item)=> (
-        <SourceSingle key={item.url} item={item} selectedSources={this.props.selectedSources}  updateSourcesCallback={this.props.updateSourcesCallback}/>
+        // <SourceSingle key={item.url} item={item} selectedSource={this.props.selectedSource}  updateSourcesCallback={this.props.updateSourcesCallback}/>
+        <SourceSingle key={item.id} item={item} selectedSource={this.props.selectedSource} />
       ));
     } else {
       return <Error />
@@ -43,9 +48,8 @@ class Sources extends Component {
   render(){
     return (
         <div className="row flex sources">
-          <p>Select Sources</p>
+          <p>Select Source</p>
           {this.renderItems()}
-          <p>Powered by NewsAPI.org</p>
         </div>
     );
   }
