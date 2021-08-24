@@ -58,13 +58,13 @@ class App extends Component {
           </nav>
         </div>
         <div className="row">
-          <div className="col xs12 s9">
+          <div className="col xs12 s12">
             <News key={this.state.news} news={this.state.news}/>
           </div>
-          <div className="col xs12 s3">
+          {/* <div className="col xs12 s3"> */}
           {/* <Sources selectedSources={this.state.selectedSources} updateSourcesCallback={this.updateSources}/> */}
-          <Sources selectedSource={this.state.selectedSource} updateSourcesCallback={this.updateSources}/> 
-          </div>
+          {/* <Sources selectedSource={this.state.selectedSource} updateSourcesCallback={this.updateSources}/>  */}
+          {/* </div> */}
         </div>
       </div>
     );
