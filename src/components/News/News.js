@@ -100,7 +100,9 @@ export default News;
 
 // https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=yourkey
 
-
+// App ID   fb9d77df-07e9-4e20-800a-de14e79bfabe
+// API KEY: rwNJPRoiKe03zizvTtd2px9eFyN8LcXQ
+// API SECRET: bQeD4zUADpsGtBfC
 
 
 // DATA SET EXAMPLE
